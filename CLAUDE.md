@@ -4,14 +4,9 @@
 
 ## Про мене
 
-Заповніть, щоб агент враховував це в кожній розмові. Рядки в дужках замініть своїми.
+Профіль рекрутерки лежить в особистому файлі `.claude/profile.md` (шаблон: `.claude/profile.example.md`):
 
-- Ім'я: [ваше ім'я]
-- Роль: [in-house рекрутерка в компанії X / рекрутерка в агенції / фриланс]
-- Кого наймаю найчастіше: [наприклад: Middle/Senior розробники, QA, PM]
-- Ринок: [Україна / українці за кордоном / Європа]
-- Компанія або клієнти: [коротко]
-- Мої основні канали: [LinkedIn, Djinni, Telegram...]
+@.claude/profile.md
 
 ## Загальні правила
 
@@ -24,9 +19,11 @@
 
 ## Де що лежить
 
+- `.claude/profile.md` — мій профіль (шаблон: `profile.example.md`).
 - `.claude/skills/*/my-examples/` — мої приклади: агент повторює мій стиль.
-- `.claude/skills/outreach-writer/my-examples/tone.md` — мій стиль повідомлень.
+- `.claude/skills/outreach-writer/my-examples/tone.md` — мій стиль повідомлень (шаблон: `tone.example.md`).
 - `.claude/playbooks/` — що спрацювало на кожній ролі (шаблон: `_шаблон.md`).
+- Мої профіль, приклади й playbooks особисті: `.gitignore` не пускає їх у GitHub.
 - `.claude/templates/pipeline-tracker.md` — трекер кандидатів.
-- `bot/` — Telegram-бот (запуск: `DEPLOY.md`); у боті цей файл теж читається як профіль.
+- `bot/` — Telegram-бот (запуск: `DEPLOY.md`); бот теж читає цей файл і `profile.md`.
 - `examples/` — тестова вакансія; `examples/original-en/` — оригінальні англійські приклади з шаблону, лише для довідки.

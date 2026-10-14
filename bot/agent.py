@@ -48,10 +48,14 @@ BOT_INSTRUCTIONS = """\
 
 def build_system_prompt(config: Config) -> str:
     parts = [BOT_INSTRUCTIONS]
+    if config.rules_file.exists():
+        parts.append("# Загальні правила (CLAUDE.md)\n\n" + config.rules_file.read_text(encoding="utf-8"))
     if config.profile_file.exists():
+        parts.append("# Профіль рекрутерки\n\n" + config.profile_file.read_text(encoding="utf-8"))
+    else:
         parts.append(
-            "# Профіль рекрутерки та загальні правила (CLAUDE.md)\n\n"
-            + config.profile_file.read_text(encoding="utf-8")
+            "# Профіль рекрутерки\n\nПрофіль ще не заповнено. Якщо доречно, запропонуй рекрутерці "
+            "розповісти про себе, і збережи це через save_knowledge_file у «profile.md»."
         )
     parts.append("# Навички")
     for skill_file in sorted((config.knowledge_dir / "skills").glob("*/SKILL.md")):

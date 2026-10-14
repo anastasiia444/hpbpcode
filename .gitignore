@@ -4,3 +4,11 @@ data/
 __pycache__/
 *.pyc
 .venv/
+
+# Особисте: профіль, приклади й playbooks кожна рекрутерка заповнює для себе
+.claude/profile.md
+.claude/playbooks/*
+!.claude/playbooks/_шаблон.md
+.claude/skills/*/my-examples/*
+!.claude/skills/*/my-examples/.gitkeep
+!.claude/skills/*/my-examples/tone.example.md

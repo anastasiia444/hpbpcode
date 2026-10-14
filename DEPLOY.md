@@ -51,7 +51,7 @@ curl -fsSL https://get.docker.com | sh
 На **Mac** (новий Термінал, не на сервері) виконайте:
 
 ```
-cd ~/Desktop/"AI агент"
+cd шлях/до/папки/з/проєктом
 rsync -av --exclude data --exclude .git --exclude .env ./ root@IP-АДРЕСА:/opt/recruiting-bot/
 ```
 
@@ -80,6 +80,7 @@ docker compose up -d --build
 2. На сервері відкрийте `nano .env` і впишіть це число в `ALLOWED_TELEGRAM_USER_ID`.
 3. Перезапустіть бота: `docker compose up -d`.
 4. Напишіть боту `/start`. Тепер він відповідає лише вам.
+5. Розкажіть боту про себе: хто ви, кого наймаєте, на якому ринку. Він збереже це у свій профіль (`.claude/profile.md`) і враховуватиме в кожній розмові.
 
 ---
 
@@ -122,7 +123,7 @@ cd /opt/recruiting-bot && docker compose up -d --build
 Ваші приклади й playbooks бот зберігає на сервері в `/opt/recruiting-bot/.claude/`. Щоб не перезаписати їх версіями з Mac, спершу заберіть їх на Mac:
 
 ```
-rsync -av root@IP-АДРЕСА:/opt/recruiting-bot/.claude/ ~/Desktop/"AI агент"/.claude/
+rsync -av root@IP-АДРЕСА:/opt/recruiting-bot/.claude/ шлях/до/папки/з/проєктом/.claude/
 ```
 
 ## Резервна копія

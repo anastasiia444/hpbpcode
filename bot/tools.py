@@ -395,7 +395,7 @@ def build_tools(ctx: ToolContext) -> list:
 
     @beta_async_tool
     async def save_knowledge_file(path: str, content: str) -> str:
-        """Зберегти або перезаписати файл знань: playbook ролі («playbooks/<роль>.md») чи приклад стилю («skills/<навичка>/my-examples/<назва>.md»). Викликай лише коли рекрутерка просить запам'ятати приклад чи висновки. Якщо файл існує, спершу прочитай його і збережи старий вміст разом з новим.
+        """Зберегти або перезаписати файл знань: профіль рекрутерки («profile.md»), playbook ролі («playbooks/<роль>.md») чи приклад стилю («skills/<навичка>/my-examples/<назва>.md»). Викликай лише коли рекрутерка просить запам'ятати приклад чи висновки. Якщо файл існує, спершу прочитай його і збережи старий вміст разом з новим.
 
         Args:
             path: Шлях відносно папки знань, закінчується на .md.
@@ -404,9 +404,9 @@ def build_tools(ctx: ToolContext) -> list:
         file = _knowledge_path(config, path)
         relative = file.relative_to(config.knowledge_dir.resolve())
         in_examples = relative.match(WRITABLE_PATTERN) and file.parent.parent.is_dir()
-        allowed = str(relative).startswith(WRITABLE_PREFIXES) or in_examples
+        allowed = str(relative).startswith(WRITABLE_PREFIXES) or in_examples or str(relative) == "profile.md"
         if not allowed or file.suffix != ".md":
-            raise ValueError("Зберігати можна лише .md у playbooks/ або skills/<навичка>/my-examples/")
+            raise ValueError("Зберігати можна лише profile.md і .md у playbooks/ або skills/<навичка>/my-examples/")
         file.parent.mkdir(parents=True, exist_ok=True)
         file.write_text(content, encoding="utf-8")
         return f"Збережено: {relative}"

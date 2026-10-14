@@ -30,7 +30,8 @@ def config(tmp_path: Path) -> Config:
         timezone=ZoneInfo("Europe/Kyiv"),
         data_dir=tmp_path / "data",
         knowledge_dir=knowledge,
-        profile_file=tmp_path / "CLAUDE.md",
+        rules_file=tmp_path / "CLAUDE.md",
+        profile_file=knowledge / "profile.md",
         google_calendar_id=None,
         google_credentials_file=tmp_path / "missing.json",
         daily_digest_hour=9,
@@ -103,6 +104,7 @@ def test_knowledge_files_sandbox(tools, config):
     ok = call(tools["save_knowledge_file"], path="playbooks/qa.md", content="Djinni працює")
     assert "playbooks/qa.md" in ok
     call(tools["save_knowledge_file"], path="skills/outreach-writer/my-examples/tone.md", content="на ви")
+    call(tools["save_knowledge_file"], path="profile.md", content="Я рекрутерка")
     assert call(tools["read_knowledge_file"], path="playbooks/qa.md") == "Djinni працює"
     assert "playbooks/qa.md" in json.loads(call(tools["list_knowledge_files"]))
     for bad in ["../outside.md", "skills/outreach-writer/SKILL.md", "playbooks/x.txt", "skills/new/my-examples/a.md"]:
@@ -147,9 +149,10 @@ def test_resume_reading(tmp_path):
 
 
 def test_system_prompt_includes_real_skills(config):
-    real = Config(**{**config.__dict__, "knowledge_dir": PROJECT_DIR / ".claude", "profile_file": PROJECT_DIR / "CLAUDE.md"})
+    real = Config(**{**config.__dict__, "knowledge_dir": PROJECT_DIR / ".claude", "rules_file": PROJECT_DIR / "CLAUDE.md",
+                     "profile_file": PROJECT_DIR / ".claude" / "missing-profile.md"})
     prompt = build_system_prompt(real)
     for skill in ["job-requirement-analysis", "candidate-icp-builder", "job-seller",
                   "sourcing-strategy-generator", "candidate-screener", "outreach-writer"]:
         assert f'<skill name="{skill}">' in prompt
-    assert "Про мене" in prompt
+    assert "Загальні правила" in prompt and "Профіль ще не заповнено" in prompt

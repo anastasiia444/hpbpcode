@@ -22,6 +22,7 @@ class Config:
     timezone: ZoneInfo
     data_dir: Path
     knowledge_dir: Path
+    rules_file: Path
     profile_file: Path
     google_calendar_id: str | None
     google_credentials_file: Path
@@ -51,7 +52,8 @@ def load_config() -> Config:
         timezone=ZoneInfo(os.environ.get("TIMEZONE", "Europe/Kyiv")),
         data_dir=data_dir,
         knowledge_dir=Path(os.environ.get("KNOWLEDGE_DIR", PROJECT_DIR / ".claude")),
-        profile_file=Path(os.environ.get("PROFILE_FILE", PROJECT_DIR / "CLAUDE.md")),
+        rules_file=PROJECT_DIR / "CLAUDE.md",
+        profile_file=Path(os.environ.get("PROFILE_FILE", PROJECT_DIR / ".claude" / "profile.md")),
         google_calendar_id=os.environ.get("GOOGLE_CALENDAR_ID") or None,
         google_credentials_file=Path(
             os.environ.get("GOOGLE_CREDENTIALS_FILE", data_dir / "google-service-account.json")
