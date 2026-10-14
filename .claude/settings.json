@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_telegram_telegram",
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  }
+}
