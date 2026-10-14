@@ -4,7 +4,9 @@
       "mcp__plugin_telegram_telegram",
       "Read",
       "Glob",
-      "Grep"
+      "Grep",
+      "Bash(./tools/transcribe.sh:*)",
+      "Bash(tools/transcribe.sh:*)"
     ]
   }
 }
