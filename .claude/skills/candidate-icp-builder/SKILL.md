@@ -1,90 +1,84 @@
 ---
 name: candidate-icp-builder
 description: >-
-  Builds structured Ideal Candidate Profiles with weighted scoring rubrics from
-  job descriptions or requirement analyses. Extracts must-haves, important, and
-  nice-to-have criteria with weights (3/2/1). Use when the user pastes a job
-  description, says "I need to hire", or wants to create a scoring rubric.
+  Складає профіль ідеального кандидата (ICP) з таблицею оцінки: обов'язкові,
+  важливі й бажані критерії з вагами 3/2/1. Використовуй, коли користувачка
+  вставляє опис вакансії чи аналіз вимог, пише «треба найняти», «склади
+  профіль кандидата», «зроби таблицю оцінки» (scoring rubric, ICP).
 ---
 
-# Ideal Candidate Profile Builder
+# Профіль ідеального кандидата (ICP)
 
-## Quick Start
+## Швидкий старт
 
-Paste a job description or requirement analysis, and this skill will build a structured ICP with a scoring rubric you can use to evaluate candidates.
+Вставте опис вакансії або аналіз вимог, і я складу профіль ідеального кандидата з таблицею оцінки, за якою потім можна оцінювати людей.
 
-## Before You Begin
+## Перед початком
 
-1. **Check `my-examples/`** for past ICPs. If found, match the style, structure, and level of detail the recruiter prefers.
-2. **Check `../playbooks/`** for a playbook matching this role type. If found, incorporate proven screening signals and evaluation criteria. Tell the user: "I found a playbook for [role type] — incorporating what historically worked."
+1. **Переглянь `my-examples/`**: якщо там є минулі профілі, повтори стиль, структуру й рівень деталізації.
+2. **Переглянь `../../playbooks/`**: якщо є playbook для цього типу ролі, врахуй сигнали, які раніше передбачали вдалий найм, і скажи: «Знайшла playbook для [тип ролі], враховую те, що спрацювало раніше».
 
-## Process
+## Процес
 
-### Step 1: Extract Role Context
-From the JD or requirement analysis, identify:
-- Job title, department, reporting line
-- Seniority level
-- Location / remote policy
-- Compensation signals (if stated)
-- Team context and project nature
+### Крок 1. Контекст ролі
+З опису витягни:
+- назву позиції, відділ, кому підпорядковується;
+- рівень;
+- локацію і формат роботи;
+- компенсацію (якщо вказана);
+- контекст команди і проєкту.
 
-### Step 2: Categorize Requirements into Three Tiers
+### Крок 2. Розподіл вимог на три рівні
 
-| Tier | Weight | Definition |
-|------|--------|------------|
-| **Must-have** | 3 | Hard requirements. Dealbreakers if missing. |
-| **Important** | 2 | Strongly preferred. Candidates without these are weaker but not disqualified. |
-| **Nice-to-have** | 1 | Bonus qualifications. Differentiate between otherwise equal candidates. |
+| Рівень | Вага | Що означає |
+|--------|------|------------|
+| **Обов'язково** | 3 | Без цього кандидат не підходить |
+| **Важливо** | 2 | Сильно бажано; без цього кандидат слабший, але не відсіюється |
+| **Буде плюсом** | 1 | Допомагає вибрати між рівними кандидатами |
 
-Parse every requirement from the JD into one of these tiers. Include:
-- Technical skills and tools
-- Experience and background
-- Certifications
-- Soft skills and competences
-- Industry/domain knowledge
-- Cultural and personality signals
+Розклади кожну вимогу з опису на ці рівні: технічні навички й інструменти, досвід, сертифікати, софт-скіли, доменні знання, рівень англійської, культурні сигнали.
 
-### Step 3: Build the Scoring Rubric
+Не додавай критеріїв про вік, стать, сімейний стан, військовий статус чи інші ознаки, за якими не можна оцінювати людей.
 
-Output a table in this format:
+### Крок 3. Таблиця оцінки
 
 ```markdown
-| # | Criterion | Tier | Weight | How to Evaluate |
-|---|-----------|------|--------|-----------------|
-| 1 | [Skill/requirement] | Must-have | 3 | [What evidence to look for] |
-| 2 | [Skill/requirement] | Important | 2 | [What evidence to look for] |
-| 3 | [Skill/requirement] | Nice-to-have | 1 | [What evidence to look for] |
+| # | Критерій | Рівень | Вага | Як перевірити |
+|---|----------|--------|------|---------------|
+| 1 | [Навичка/вимога] | Обов'язково | 3 | [Які докази шукати] |
+| 2 | [Навичка/вимога] | Важливо | 2 | [Які докази шукати] |
+| 3 | [Навичка/вимога] | Буде плюсом | 1 | [Які докази шукати] |
 ```
 
-The "How to Evaluate" column is critical — it tells the recruiter what to look for on a profile or in a conversation. Be specific: "Look for 5+ years in project management roles at tech companies" not just "Experience."
+Стовпець «Як перевірити» найважливіший: він підказує, на що дивитися в профілі чи на розмові. Пиши конкретно: «5+ років на позиції PM у продуктових IT-компаніях», а не просто «досвід».
 
-### Step 4: Validate with the Recruiter
+### Крок 4. Узгодження з рекрутеркою
 
-**Always ask before proceeding:**
+**Завжди запитай, перш ніж іти далі:**
 
-> "Here's the scoring rubric I've built. Before we use it to evaluate candidates:
-> 1. Are the tiers correct? Should any criterion move up or down?
-> 2. Are the weights right? Should any must-have actually be nice-to-have (or vice versa)?
-> 3. Is anything missing that you'd want to score on?
+> «Ось таблиця оцінки. Перш ніж оцінювати кандидатів:
+> 1. Чи правильно розподілені рівні? Щось підняти чи опустити?
+> 2. Чи правильні ваги?
+> 3. Чи чогось бракує?
 >
-> Adjust as needed — this rubric drives all candidate scoring."
+> Виправте, якщо треба: за цією таблицею оцінюватимуться всі кандидати».
 
-**Do NOT auto-score candidates without the recruiter confirming the rubric first.**
+**Не оцінюй кандидатів, доки рекрутерка не підтвердила таблицю.**
 
-### Step 5: Calculate Scoring Summary
+### Крок 5. Підсумок
 
-After confirmation, provide:
-- Total number of criteria per tier
-- Maximum possible score: sum of (weight × 3) for all criteria
-- Scoring guide: how to interpret total scores (e.g., "Above 80% = strong fit, 60-80% = worth considering, below 60% = likely not a match")
+Після підтвердження наведи:
+- кількість критеріїв на кожному рівні;
+- максимальний бал: сума (вага × 3) за всіма критеріями;
+- як читати результат: понад 80% — сильний кандидат, 60–80% — варто розглянути, менше 60% — швидше за все, не підходить.
 
-## Output Format
+## Формат результату
 
-Present everything in a single copy-paste-ready fenced markdown block.
+Усе в одному блоці markdown, щоб можна було скопіювати.
 
-## What's Next
+## Що далі
 
-After the ICP is confirmed, suggest:
-- "Ready to evaluate a candidate? Use the **Candidate Screener** skill."
-- "Want to improve the job posting? Use the **Job Seller** skill."
-- "Need to find candidates? Use the **Sourcing Strategy Generator** skill."
+Після підтвердження запропонуй:
+- «Оцінимо кандидата? Навичка **candidate-screener**».
+- «Покращимо текст вакансії? Навичка **job-seller**».
+- «Шукаємо кандидатів? Навичка **sourcing-strategy-generator**».

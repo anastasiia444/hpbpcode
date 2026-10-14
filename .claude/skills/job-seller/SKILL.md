@@ -1,102 +1,100 @@
 ---
 name: job-seller
 description: >-
-  Helps recruiters identify what makes a role genuinely exciting and rewrite job posts
-  to attract top candidates. Uses "So what?" reframing and software engineer motivation
-  frameworks. Use when the user says "make this role appealing", "improve this job ad",
-  "sell this role", "pitch this vacancy", or wants to create outreach hooks.
+  Знаходить, чим вакансія справді цікава, і переписує текст вакансії так, щоб
+  він приваблював сильних кандидатів. Використовує техніку «І що з того?» і
+  мотивацію IT-фахівців. Використовуй, коли користувачка просить «зроби
+  вакансію привабливішою», «перепиши вакансію», «як продати цю вакансію»,
+  «текст для Djinni/DOU/LinkedIn» або хуки для повідомлень кандидатам.
 ---
 
-# Job Seller
+# Продаж вакансії
 
-## Quick Start
+## Швидкий старт
 
-Paste a job description and this skill will analyze its selling points, reframe boring features into candidate benefits, and rewrite the job post to attract top talent.
+Вставте опис вакансії, і я знайду її сильні сторони, переформулюю «нудні» деталі у вигоди для кандидата і перепишу текст.
 
-## Before You Begin
+## Перед початком
 
-1. **Check `my-examples/`** for past job ads that attracted great candidates. Match what worked.
-2. **Check `resources/`** for mind maps and PDF guides on pitching vacancies and making jobs appealing. Reference their insights.
-3. **Check `../playbooks/`** for role-specific selling points that resonated with candidates in the past.
+1. **Переглянь `my-examples/`**: які тексти вакансій раніше приводили сильних кандидатів. Повтори те, що спрацювало.
+2. **Переглянь `resources/`**: mind map і гайди про те, як продавати вакансії.
+3. **Переглянь `../../playbooks/`**: які аргументи раніше чіпляли кандидатів на цю роль.
 
-## Core Question
+## Головне запитання
 
-Start every analysis with: **"Who is this a dream job for?"**
+Почни з: **«Для кого це робота мрії?»**
 
-This reframes the entire job post from "what we need" to "who would love this."
+Воно перевертає текст з «що потрібно нам» на «кому це сподобається».
 
-## Selling Dimensions
+## Що аналізувати
 
-Analyze the JD against each dimension. For each one, note what's strong, what's weak, and what's missing:
+Для кожного пункту познач, що сильне, що слабке і чого бракує:
 
-1. **Career Development**: Growth path, learning opportunities, mentorship, promotion trajectory
-2. **Interesting Challenges**: Technical or business problems that would excite the right person
-3. **Team Culture**: Team strengths, how they work together, what members enjoy
-4. **Compensation**: Salary/rate, ESOP, unique benefits — what stands out vs market?
-5. **Technology**: Innovative or interesting tech stack? Cutting-edge tools?
-6. **Ideal Candidate Persona**: What are they interested in? What do they desire? What have they tried and want to do differently?
-7. **Team Members**: Size, seniority, superstars, OSS contributors, great CTO? Methodology, best practices, interesting tools?
-8. **Project**: Nature (from scratch / maintenance / R&D / prototype)? Milestones? What makes it interesting?
-9. **Product**: High-tech? Fast-growing? Who uses it? What impact?
-10. **Company**: Mission, reputation, customers, milestones, credibility boosters (fundraising, notable investors, high-profile team, press)
+1. **Кар'єрний ріст**: куди можна вирости, навчання, менторство
+2. **Цікаві задачі**: технічні чи бізнесові виклики
+3. **Культура команди**: як працюють разом, що подобається людям
+4. **Компенсація**: ставка, валюта, бонуси, опціони, бенефіти — що вигідно на тлі ринку?
+5. **Технології**: сучасний чи цікавий стек?
+6. **Портрет ідеального кандидата**: чим цікавиться, чого хоче, що хоче робити інакше?
+7. **Люди**: розмір команди, рівень, сильні спеціалісти, хороший CTO, практики
+8. **Проєкт**: з нуля / підтримка / R&D / прототип? Цілі? Що цікаво?
+9. **Продукт**: хто користувачі, який вплив, як росте?
+10. **Компанія**: місія, репутація, клієнти, інвестиції, преса
+11. **Стабільність в умовах війни**: регулярність виплат, бронювання, робота під час блекаутів (генератори, Starlink, коворкінги), підтримка ветеранів і людей, що служать, гнучкість для тих, хто за кордоном
 
-## "So What?" Reframing Technique
+## Техніка «І що з того?»
 
-For EVERY factual detail in the JD, apply this test:
+Для КОЖНОГО факту з вакансії:
 
-> **Fact** → "So what does this mean for the candidate?" → **Candidate Benefit**
+> **Факт** → «І що це дає кандидату?» → **Вигода для кандидата**
 
-Examples:
-| Feature | "So what?" | Candidate Benefit |
-|---------|-----------|-------------------|
-| Small team (8 people) | Direct access to leadership | "You'll work directly with the CTO — impossible in a larger org" |
-| It's a startup | Breadth of experience | "You'll contribute across fronts and gain wider experience" |
-| Consulting role | Variety of work | "You'll work for multiple clients and gain international experience" |
-| Team in UK/USA | Language exposure | "Improve your English daily by working with native speakers" |
-| Hybrid 1-2 days office | Social connection | "Meet people in person, build relationships beyond Slack" |
-| Well-known company | Career capital | "This brand on your CV opens doors — your market value increases" |
-| React + Next.js stack | Market-relevant skills | "Use cutting-edge tools that boost your market value for years" |
-| Recent Series A funding | Financial stability | "Funded and growing — no worries about your next paycheck" |
-| FinTech product | Industry experience | "Gain priceless experience in a booming sector" |
-| 5 OSS contributors on team | Learning from the best | "Learn from people who shape the tools you use" |
+| Факт | «І що з того?» | Вигода |
+|------|----------------|--------|
+| Маленька команда (8 людей) | Прямий доступ до керівництва | «Ви працюватимете напряму з CTO, у великій компанії так не вийде» |
+| Стартап | Широкий досвід | «Ви торкнетеся багатьох напрямів і швидко виростете» |
+| Аутсорс з різними клієнтами | Різноманіття задач | «Різні проєкти й домени, міжнародний досвід» |
+| Команда в США/Великій Британії | Практика англійської | «Щодня спілкуєтесь англійською з носіями» |
+| Оплата в USD | Захист від інфляції | «Дохід не залежить від курсу гривні» |
+| Компанія може бронювати | Спокій і передбачуваність | «Можна зосередитися на роботі» |
+| Офіс з генератором і Starlink | Робота без перебоїв | «Блекаути не зривають вам дедлайни» |
+| Відома компанія | Кар'єрний капітал | «Цей бренд у резюме відкриває двері» |
+| Свіжий раунд інвестицій | Фінансова стабільність | «Компанія росте і має гроші на розвиток» |
 
-Apply this to every detail — even "boring" features have a candidate angle.
+Застосовуй до кожної деталі: навіть «нудний» факт має вигоду для кандидата.
 
-## Software Engineer Motivation Framework
+## Мотивація IT-фахівців
 
-When the role targets developers or engineers, additionally evaluate against what they typically desire:
+Якщо роль технічна, додатково перевір:
 
-1. **Modern tech stack**: Latest framework/language versions, opportunity to learn new tech
-2. **Dev best practices**: Containers (Docker), DevOps (CI/CD), Cloud (AWS/Azure/GCP), Agile
-3. **Great team**: Culture, team size benefits, senior devs, OSS contributors, good product management
-4. **Good management**: Industry expert leaders, experienced CTO/VP Eng, flat hierarchy
-5. **Challenging product**: High-tech (AI, AR/VR, streaming), innovative solution, meaningful problem
-6. **Scope of work**: New features preferred over maintenance
-7. **Type of work**: Remote > on-site, flexible > fixed hours (for many)
-8. **Growth environment**: Learning, professional development, career progression
-9. **Compensation**: Competitive salary, ESOP, benefits
+1. **Сучасний стек**: свіжі версії, можливість вивчати нове
+2. **Інженерні практики**: Docker, CI/CD, хмара, code review, тести
+3. **Сильна команда**: сенйори, контриб'ютори open source, хороший продакт-менеджмент
+4. **Хороший менеджмент**: досвідчений CTO, пласка структура
+5. **Цікавий продукт**: AI, highload, реальна користь для людей
+6. **Тип задач**: нові фічі важливіші за підтримку
+7. **Формат**: віддалено й гнучко (для багатьох це важливіше за офіс)
+8. **Ріст**: навчання, конференції, кар'єрний трек
+9. **Гроші**: конкурентна ставка в USD, бонуси, бенефіти
 
-For each dimension, flag whether the JD addresses it and suggest improvements for underrepresented ones.
+Для кожного пункту познач, чи він є у вакансії, і запропонуй, що додати.
 
-## Output
+## Результат
 
-Generate all of these:
+### 1. Аналіз сильних сторін
+Таблиця: Пункт | Що сильне | Що слабке чи відсутнє
 
-### 1. Selling Points Analysis
-Table: Dimension | What's Strong | What's Weak/Missing
+### 2. Таблиця «І що з того?»
+Факт → Вигода для кандидата (для кожної важливої деталі)
 
-### 2. "So What?" Reframing Table
-Table: Feature → Candidate Benefit (for every key detail)
+### 3. Новий текст вакансії
+Готовий до публікації на Djinni, DOU, Work.ua чи LinkedIn. Спершу те, що цікавить кандидата: задачі, вплив, ріст, умови. «Про компанію» не на початку. Зарплатну вилку вказуй, якщо вона відома: кандидати охочіше відгукуються на вакансії з вилкою.
 
-### 3. Rewritten Job Post
-Copy-paste ready. Selling points front and center, organized by what excites candidates (not by company org chart). Lead with impact, challenges, and growth — not with "About Us" boilerplate.
+### 4. Хуки для повідомлень
+3–5 однорядкових аргументів для повідомлень кандидатам, кожен з іншого кута: вплив, ріст, команда, технології, місія, стабільність.
 
-### 4. Outreach Hooks
-3-5 one-liner angles the recruiter can use in outreach messages. Each hook should be a different angle (impact, growth, team, tech, mission).
+### 5. Запитання до наймаючого менеджера
+Для слабких чи відсутніх пунктів: конкретні запитання, які допоможуть знайти більше аргументів. Наприклад: «Яку найцікавішу задачу ця людина вирішить за перші 90 днів?»
 
-### 5. Questions for the Hiring Manager
-Based on weak or missing dimensions — specific questions to uncover more selling points. Example: "What's the most interesting problem this person will solve in their first 90 days?"
+## Принцип
 
-## Design Principle
-
-**Honest selling.** Highlight genuine strengths. Never oversell or misrepresent. If a dimension is genuinely weak, say so and suggest how to compensate with other strengths.
+**Чесний продаж.** Показуй справжні переваги. Не перебільшуй і не вигадуй. Якщо щось справді слабке, скажи про це і запропонуй, чим це компенсувати.

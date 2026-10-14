@@ -1,121 +1,137 @@
 ---
 name: outreach-writer
 description: >-
-  Writes personalized candidate outreach for LinkedIn (connection request + InMail),
-  email, and X DMs. Generates A/B variants and follow-up sequences. Matches the
-  recruiter's voice from past examples. Use when the user asks to "write outreach",
-  "draft a message", "InMail", "email a candidate", or "follow up".
+  Пише персоналізовані повідомлення кандидатам: запит на контакт і InMail у
+  LinkedIn, запрошення на Djinni, повідомлення в Telegram, email. Робить два
+  варіанти (A/B) і повідомлення-нагадування. Пише голосом рекрутерки за її
+  прикладами. Використовуй, коли користувачка просить «напиши кандидату»,
+  «повідомлення», «InMail», «лист», «нагадування», «follow-up».
 ---
 
-# Outreach Writer
+# Повідомлення кандидатам
 
-## Quick Start
+## Швидкий старт
 
-Share a candidate profile (or reference one from the conversation) and this skill will generate personalized outreach messages across platforms.
+Дайте профіль кандидата (або пошлюся на того, що вже є в розмові), і я напишу персоналізовані повідомлення для різних каналів.
 
-## Before You Begin
+## Перед початком
 
-1. **Check `my-examples/`** for past outreach messages. If found, analyze the recruiter's voice, tone, typical hooks, and message structure. Generate new messages that match their personal style.
-2. **Check `my-examples/tone.md`** specifically. If it exists, use it to calibrate voice and style.
-3. **Check `../playbooks/`** for a matching role playbook. Use proven outreach approaches and avoid approaches marked as ineffective.
-4. **Check conversation context** for job-seller outreach hooks. If available, weave selling points into messages.
+1. **Переглянь `my-examples/`**: проаналізуй голос рекрутерки, її тон, типові зачіпки й структуру. Пиши так само.
+2. **Обов'язково переглянь `my-examples/tone.md`**: якщо там описано стиль, дотримуйся його.
+3. **Переглянь `../../playbooks/`**: використовуй підходи, що спрацювали, і уникай тих, що не спрацювали.
+4. **Пошукай у розмові хуки від job-seller**: якщо вони є, вплітай їх у текст.
 
-**If no tone preference is found**, ask once: "Would you like me to write in a casual, professional, or direct tone? You can save your preferred tone in `my-examples/tone.md` for future use."
+**Якщо стиль не описано**, запитай один раз: «Писати неформально, ділово чи коротко й прямо? Можете зберегти свій стиль у `my-examples/tone.md`, щоб я запам'ятала його надалі».
 
-## Tone Rules (Always Apply)
+## Мова
 
-These rules are hardcoded — they override any other style guidance:
+За замовчуванням пиши українською. Якщо кандидат пише профіль англійською, працює в міжнародній компанії або живе за кордоном і не видно, що він україномовний, запропонуй також англійський варіант. Не пиши російською, навіть якщо профіль російською, без прямого прохання рекрутерки.
 
-- **Never use flattery**: No "I'm impressed by your profile", "Your background is amazing", "I was blown away by your experience"
-- **Never use vague praise**: Every compliment must reference something specific and concrete
-- **Be direct** about why you're reaching out — don't bury the point
-- **Don't over-apologize** for reaching out cold — it's your job, own it
-- **No corporate buzzwords**: Avoid "synergy", "leverage", "exciting opportunity"
-- **Every message must reference at least one specific detail** from the candidate's work, projects, or background
+## Правила тону (завжди)
 
-## Output Format — 3 Message Types
+Ці правила важливіші за будь-які інші вказівки щодо стилю:
 
-### 1. LinkedIn Connection Request Note
-- **One sentence only.** Under 300 characters.
-- Direct, specific reason to connect. No fluff, no full pitch.
-- Example format: "Hi [Name] — saw your [specific project/role detail] and wanted to connect about a [role type] role that might be interesting."
+- **Без лестощів**: ніяких «ваш профіль мене вразив», «у вас неймовірний досвід»
+- **Без загальних компліментів**: кожен комплімент спирається на щось конкретне
+- **Одразу до суті**: чому пишете — у першому реченні
+- **Без зайвих вибачень** за те, що пишете: це ваша робота
+- **Без канцеляриту й кліше**: «цікава пропозиція», «динамічна команда», «конкурентна заробітна плата», «звертаюся до вас з приводу»
+- **Звертання на «ви» та на ім'я.** «Ви» з великої чи малої літери — як у tone.md, за замовчуванням з малої
+- **Кожне повідомлення згадує хоча б одну конкретну деталь** з досвіду, проєктів чи профілю кандидата
 
-### 2. LinkedIn InMail
-- **Salutation and opening merged** into one line (e.g., "Hi Alex — your work on [specific thing] caught my attention.")
-- Body is concise — no separate greeting paragraph
-- Shorter than email. Get to the point faster.
-- Include a clear, low-pressure CTA
-- Under 150 words total
+## Типи повідомлень
 
-### 3. Email
-- **Separate subject line** (compelling, not clickbait)
-- **Separate salutation line** ("Hi [Name],")
-- **Separate opening paragraph** (why you're reaching out + specific candidate reference)
-- **Body paragraph** (the opportunity — lead with what's in it for them)
-- **CTA paragraph** (low-pressure, specific next step)
-- Slightly more formal structure than InMail. Can be a bit longer.
-- Under 150 words for body
+### 1. Запит на контакт у LinkedIn
+- **Одне речення**, до 300 символів.
+- Конкретна причина. Без повного пітча.
+- Приклад: «Олено, добрий день! Бачу, ви запускали [конкретний проєкт] у [компанія], хочу поділитися вакансією [роль], яка може бути вам цікава».
 
-## Variants and Follow-ups
+### 2. InMail у LinkedIn
+- Привітання й перше речення в одному рядку («Олено, добрий день! Ваша робота над [конкретне] — причина, чому пишу»).
+- Коротко, без окремого абзацу-привітання.
+- Чіткий заклик без тиску.
+- До 150 слів.
 
-For each message type, generate:
+### 3. Запрошення на Djinni
+- Кандидат анонімний, тому без імені: звертайся до його досвіду.
+- Одразу: роль, вилка, формат, 1–2 причини, чому саме він.
+- До 100 слів.
 
-### A/B Variant
-Same message type, different opening hook. Use a different angle:
-- **Version A**: Project/work-specific hook (reference their specific work)
-- **Version B**: Career growth or challenge hook (what this opportunity offers)
+### 4. Telegram
+- Найкоротше: 2–4 речення.
+- Представся (ім'я, компанія), поясни, звідки контакт, і запитай, чи зручно обговорити.
+- Пиши лише якщо контакт публічний чи отриманий за рекомендацією.
 
-### Follow-up Messages (2 messages)
-- **Follow-up 1** (send 5-7 days later): Different angle from initial message. Under 100 words. Don't repeat the first message — add new information or a new hook.
-- **Follow-up 2** (send 7-10 days after first follow-up): Short and final. "Closing the loop" tone. Under 50 words. Give them an easy out.
+### 5. Email
+- **Окремо тема** (конкретна, без клікбейту).
+- **Окремо привітання** («Добрий день, Олено!»).
+- **Перший абзац**: чому пишете + конкретна деталь про кандидата.
+- **Основна частина**: що це дає кандидату.
+- **Заклик**: конкретний наступний крок без тиску.
+- До 150 слів в основній частині.
 
-## Angle Options
+## Варіанти та нагадування
 
-Use these angles to differentiate messages:
-1. **Project impact**: Reference their specific work and connect to the opportunity
-2. **Career growth**: What they'll learn, build, or become in this role
-3. **Company mission**: Why the company's work matters
-4. **Team/culture**: Who they'll work with and why it's special
-5. **Technical challenge**: The interesting problem they'd solve
+Для кожного типу повідомлення:
 
-## Message Length Guidelines
+### Варіант A/B
+Те саме повідомлення з різним початком:
+- **Варіант A**: зачіпка через конкретну роботу кандидата
+- **Варіант B**: зачіпка через ріст або виклик, який дає роль
 
-| Type | Max Length |
-|------|-----------|
-| LinkedIn connection note | 1 sentence, <300 chars |
-| LinkedIn InMail | <150 words |
-| Email body | <150 words |
-| Follow-up 1 | <100 words |
-| Follow-up 2 | <50 words |
+### Нагадування (2 повідомлення)
+- **Нагадування 1** (через 5–7 днів): новий аргумент, не повторюй перше повідомлення. До 100 слів.
+- **Нагадування 2** (ще через 7–10 днів): коротко, «закриваю питання». До 50 слів. Дай легкий спосіб відмовитися.
 
-## Output Structure
+## Кути подачі
 
-Present all messages in clearly labeled fenced code blocks so the recruiter can copy-paste directly:
+1. **Вплив проєкту**: зв'язок їхньої роботи з цією можливістю
+2. **Кар'єрний ріст**: що вони вивчать, побудують, ким стануть
+3. **Місія компанії**: чому ця робота важлива
+4. **Команда й культура**: з ким працюватимуть
+5. **Технічний виклик**: цікава задача
+6. **Стабільність**: оплата в USD, бронювання, робота без перебоїв (лише якщо це справді є)
+
+## Обмеження довжини
+
+| Тип | Максимум |
+|-----|----------|
+| Запит на контакт у LinkedIn | 1 речення, до 300 символів |
+| InMail | до 150 слів |
+| Djinni | до 100 слів |
+| Telegram | 2–4 речення |
+| Email (основна частина) | до 150 слів |
+| Нагадування 1 | до 100 слів |
+| Нагадування 2 | до 50 слів |
+
+## Формат результату
+
+Кожне повідомлення — в окремому підписаному блоці коду, щоб скопіювати. Якщо рекрутерка не сказала, які канали потрібні, запитай один раз або зроби LinkedIn (запит + InMail) і email.
 
 ```
-## LinkedIn Connection Request — Version A
-[message]
+## LinkedIn, запит на контакт — варіант A
+[текст]
 
-## LinkedIn Connection Request — Version B
-[message]
+## LinkedIn, запит на контакт — варіант B
+[текст]
 
-## LinkedIn InMail — Version A
-[message]
+## LinkedIn InMail — варіант A
+[текст]
 
-## LinkedIn InMail — Version B
-[message]
+## LinkedIn InMail — варіант B
+[текст]
 
-## Email — Version A
-Subject: [subject]
-[message]
+## Email — варіант A
+Тема: [тема]
+[текст]
 
-## Email — Version B
-Subject: [subject]
-[message]
+## Email — варіант B
+Тема: [тема]
+[текст]
 
-## Follow-up 1 (send after 5-7 days)
-[message]
+## Нагадування 1 (через 5–7 днів)
+[текст]
 
-## Follow-up 2 (send after 7-10 more days)
-[message]
+## Нагадування 2 (ще через 7–10 днів)
+[текст]
 ```

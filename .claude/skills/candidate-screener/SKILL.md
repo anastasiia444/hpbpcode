@@ -1,112 +1,113 @@
 ---
 name: candidate-screener
 description: >-
-  Scores candidates against an ICP rubric with evidence-based evaluation. Handles
-  single profiles and batch screening with ranked comparison tables. Use when
-  the user pastes a candidate profile (LinkedIn text, resume, GitHub), multiple
-  profiles, or asks to evaluate/compare/rank candidates.
+  Оцінює кандидатів за таблицею ICP з доказами для кожного балу. Працює з одним
+  профілем і з пачкою кандидатів (рейтингова таблиця). Використовуй, коли
+  користувачка вставляє профіль кандидата (LinkedIn, Djinni, резюме, GitHub),
+  кілька профілів або просить «оціни», «порівняй», «відранжуй» кандидатів.
 ---
 
-# Candidate Screener
+# Оцінка кандидатів
 
-## Quick Start
+## Швидкий старт
 
-Paste a candidate profile (LinkedIn text, resume content, or notes) and this skill will extract structured data, score against your ICP, and generate a hiring manager briefing.
+Вставте профіль кандидата (текст з LinkedIn чи Djinni, резюме або нотатки), і я витягну структуровані дані, оціню людину за таблицею ICP і напишу коротку довідку для наймаючого менеджера.
 
-For multiple candidates, separate them with `---`.
+Кілька кандидатів розділяйте рядком `---`.
 
-## Before You Begin
+## Перед початком
 
-1. **Check `my-examples/`** for past evaluations or briefings. Match the format, tone, and depth the recruiter prefers.
-2. **Check `../playbooks/`** for a matching role playbook. If found, weight screening signals that historically predicted good hires.
-3. **Check conversation context** for an ICP/scoring rubric. If none exists, ask: "I don't see a scoring rubric in our conversation. Would you like to provide a JD so I can build one first, or should I do a general assessment without scoring?"
+1. **Переглянь `my-examples/`**: повтори формат, тон і глибину минулих оцінок.
+2. **Переглянь `../../playbooks/`**: якщо є playbook для ролі, дай більшу вагу сигналам, які раніше передбачали вдалий найм.
+3. **Знайди таблицю ICP у розмові.** Якщо її немає, запитай: «Не бачу таблиці оцінки. Дасте опис вакансії, щоб я її склала, чи зробити загальну оцінку без балів?»
 
-## Single Candidate Evaluation
+## Оцінка одного кандидата
 
-### Step 1: Extract Structured Profile
-
-```markdown
-## Candidate Profile
-- **Name**: [extracted or "NOT FOUND"]
-- **Current Title**: [...]
-- **Current Company**: [...]
-- **Location**: [...]
-- **Years of Experience**: [estimated from career history]
-- **Education**: [...]
-- **Key Skills**: [top 5-8 skills from profile]
-- **Notable Achievements**: [2-3 standout items]
-- **Online Presence**: [URLs if found]
-```
-
-**Never invent details.** If a field is not in the provided data, write **"NOT FOUND"**.
-
-### Step 2: Score Against ICP Rubric
-
-For each criterion in the rubric:
+### Крок 1. Структурований профіль
 
 ```markdown
-| # | Criterion | Weight | Score (0-3) | Evidence |
-|---|-----------|--------|-------------|----------|
-| 1 | [criterion] | 3 | [0-3] | [Quote or specific evidence from profile, or "NOT FOUND"] |
+## Профіль кандидата
+- **Ім'я**: [з профілю або «НЕ ЗНАЙДЕНО»]
+- **Поточна посада**: [...]
+- **Поточна компанія**: [...]
+- **Локація**: [...]
+- **Досвід (років)**: [оцінка за історією роботи]
+- **Освіта**: [...]
+- **Англійська**: [...]
+- **Ключові навички**: [5–8 головних]
+- **Помітні досягнення**: [2–3]
+- **Зарплатні очікування**: [якщо вказані]
+- **Посилання**: [якщо є]
 ```
 
-**Scoring guide:**
-- **3**: Strong evidence, clearly meets/exceeds the criterion
-- **2**: Moderate evidence, likely meets the criterion
-- **1**: Weak evidence, partially meets or unclear
-- **0**: No evidence found, or evidence of not meeting the criterion
+**Нічого не вигадуй.** Якщо поля немає в даних, пиши **«НЕ ЗНАЙДЕНО»**.
 
-**Total weighted score** = sum of (weight × score) for all criteria
-**Fit percentage** = total weighted score / maximum possible score × 100
-
-### Step 3: Flag Signals
-
-**Red Flags** (if any):
-- Job hopping without career progression
-- Skill mismatches vs stated experience level
-- Gaps that could indicate issues (but note: gaps have many legitimate explanations)
-
-**Standout Signals** (if any):
-- Achievements that exceed expectations for the level
-- Unique background that adds unexpected value
-- Evidence of leadership, initiative, or impact beyond the role
-
-### Step 4: Hiring Manager Briefing
-
-Write a 3-5 sentence summary covering:
-1. Overall fit assessment (strong/moderate/weak) with the key reason
-2. Top 1-2 strengths relevant to this role
-3. Key gap or risk (if any)
-4. Suggested interview focus area
-
-## Batch Screening (Multiple Candidates)
-
-When the user provides multiple profiles (separated by `---` or clearly delineated):
-
-1. Score each candidate silently using the single-candidate process
-2. Output a ranked comparison table:
+### Крок 2. Оцінка за таблицею ICP
 
 ```markdown
-| Rank | Name | Current Title | Score | Fit % | Top Strengths | Key Gaps | Recommendation |
-|------|------|---------------|-------|-------|---------------|----------|----------------|
-| 1 | [name] | [title] | [score] | [%] | [1-2 items] | [1 item] | Pursue |
-| 2 | [name] | [title] | [score] | [%] | [1-2 items] | [1 item] | Pursue |
-| 3 | [name] | [title] | [score] | [%] | [1-2 items] | [1 item] | Maybe |
+| # | Критерій | Вага | Бал (0–3) | Доказ |
+|---|----------|------|-----------|-------|
+| 1 | [критерій] | 3 | [0–3] | [Цитата чи конкретний факт з профілю або «НЕ ЗНАЙДЕНО»] |
 ```
 
-**Recommendation categories:**
-- **Pursue**: Score 70%+ and no critical gaps in must-haves
-- **Maybe**: Score 50-70% or has addressable gaps worth discussing
-- **Pass**: Score below 50% or critical must-have gaps
+**Шкала:**
+- **3**: чіткі докази, повністю відповідає або перевищує
+- **2**: помірні докази, скоріше відповідає
+- **1**: слабкі докази, частково або неясно
+- **0**: доказів немає або є докази невідповідності
 
-3. Below the table, provide:
-   - 2-3 sentence summary of the top candidates
-   - Any patterns observed (e.g., "All candidates lack cloud experience — consider relaxing this criterion or sourcing differently")
-   - Who to prioritize for outreach and why
+**Загальний бал** = сума (вага × бал).
+**Відповідність, %** = загальний бал / максимальний бал × 100.
 
-## Rules
+### Крок 3. Сигнали
 
-- **Never hallucinate.** Only use information provided. If something is unclear, say so.
-- **Transparent scoring.** Every score must have a one-line evidence reference.
-- **Copy-paste ready.** All output should be in fenced markdown blocks.
-- **Suggest next steps.** After screening, suggest: "Ready to write outreach? Use the **Outreach Writer** skill."
+**Тривожні сигнали** (якщо є):
+- часта зміна роботи без професійного росту;
+- заявлений рівень не збігається з навичками.
+
+**Сильні сигнали** (якщо є):
+- досягнення понад очікування для рівня;
+- нестандартний досвід, корисний для ролі;
+- лідерство, ініціатива, вплив за межами своєї ролі.
+
+**Ніколи не вважай тривожним сигналом** перерви в кар'єрі через війну, службу в ЗСУ, переїзд, декрет чи догляд за рідними, а також вік, стать, сімейний стан чи військовий статус. Перерву можна лише позначити як тему для уточнення, без зниження балу.
+
+### Крок 4. Довідка для наймаючого менеджера
+
+3–5 речень:
+1. Загальна оцінка (сильний / середній / слабкий) і головна причина.
+2. 1–2 ключові сильні сторони для цієї ролі.
+3. Головний ризик чи прогалина (якщо є).
+4. На чому зосередитися на інтерв'ю.
+
+## Пачка кандидатів
+
+Коли кандидатів кілька:
+
+1. Оціни кожного за процесом вище, без виводу проміжних таблиць.
+2. Покажи рейтинг:
+
+```markdown
+| Місце | Ім'я | Посада | Бал | % | Сильні сторони | Прогалини | Рішення |
+|-------|------|--------|-----|---|----------------|-----------|---------|
+| 1 | [ім'я] | [посада] | [бал] | [%] | [1–2] | [1] | Писати |
+| 2 | [ім'я] | [посада] | [бал] | [%] | [1–2] | [1] | Можливо |
+| 3 | [ім'я] | [посада] | [бал] | [%] | [1–2] | [1] | Відмова |
+```
+
+**Рішення:**
+- **Писати**: 70%+ і всі обов'язкові критерії закриті
+- **Можливо**: 50–70% або прогалини, які варто обговорити
+- **Відмова**: менше 50% або не закритий обов'язковий критерій
+
+3. Під таблицею:
+   - 2–3 речення про найсильніших;
+   - помічені закономірності (наприклад: «Ні в кого немає досвіду з AWS: можливо, варто послабити цей критерій або шукати інакше»);
+   - кому писати першим і чому.
+
+## Правила
+
+- **Нічого не вигадуй.** Тільки те, що є в наданих даних. Якщо щось неясно, так і скажи.
+- **Прозорість.** Кожен бал підкріплений одним рядком доказу.
+- **Готово до копіювання.** Результат у блоках markdown.
+- **Наступний крок.** Після оцінки запропонуй: «Напишемо повідомлення кандидату? Навичка **outreach-writer**».

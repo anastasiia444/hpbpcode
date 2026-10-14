@@ -1,131 +1,119 @@
 ---
 name: sourcing-strategy-generator
 description: >-
-  Generates multi-step sourcing strategies with Boolean search strings, Google X-ray
-  searches, community suggestions, and a full channel checklist. Starts narrow and
-  expands progressively. Use when the user asks "where do I find candidates",
-  "generate search strings", "sourcing strategy", or "how do I get more candidates".
+  Складає поетапну стратегію пошуку кандидатів: булеві запити для LinkedIn,
+  пошук на Djinni, Google X-ray, GitHub, Telegram-канали й спільноти, а також
+  повний чекліст каналів. Починає вузько і поступово розширює. Використовуй,
+  коли користувачка питає «де шукати кандидатів», «склади пошукові запити»,
+  «стратегія пошуку», «мало кандидатів, що робити» (sourcing, boolean search).
 ---
 
-# Sourcing Strategy Generator
+# Стратегія пошуку кандидатів
 
-## Quick Start
+## Швидкий старт
 
-Share your ICP or job description, and this skill will generate a phased search strategy plus a full sourcing channel checklist.
+Дайте профіль ідеального кандидата або опис вакансії, і я складу поетапний план пошуку та повний чекліст каналів.
 
-## Before You Begin
+## Перед початком
 
-1. **Check `my-examples/`** for past search strings and community lists that worked. Incorporate proven strategies.
-2. **Check `resources/`** for PDF guides or mind maps on sourcing strategy. Reference insights.
-3. **Check `../playbooks/`** for a matching role playbook. If found, lead with proven channels and flag ones that didn't work: "Your playbook shows [channel] had [X]% response rate for this role — prioritizing that."
+1. **Переглянь `my-examples/`**: які запити й спільноти раніше спрацювали. Використай їх.
+2. **Переглянь `resources/`**: гайди та mind map про пошук.
+3. **Переглянь `../../playbooks/`**: якщо є playbook для ролі, почни з перевірених каналів і познач ті, що не спрацювали: «За вашим playbook, [канал] дав [X]% відповідей для цієї ролі, тому ставлю його першим».
 
-## Part A: Multi-Step Search Strategy
+## Частина A. Поетапний пошук
 
-Generate a phased search plan. Each step broadens the search progressively.
+Кожен крок розширює пошук.
 
-### Step 1 — Exact Match
-Tight Boolean strings using must-have criteria only. Targets candidates who match the ICP closely.
+### Крок 1. Точний збіг
+Вузькі запити лише за обов'язковими критеріями.
 
-**For each platform, provide copy-paste strings:**
-- LinkedIn (free search)
-- LinkedIn Recruiter (with Recruiter-specific syntax)
-- Google X-ray: `site:linkedin.com/in/ "keyword" "keyword"`
-- GitHub (if technical role)
-- X/Twitter bio search (if relevant)
+**Для кожної платформи дай готові рядки:**
+- LinkedIn (звичайний пошук): булевий запит з AND / OR / NOT, лапками й дужками
+- LinkedIn Recruiter (якщо є доступ): фільтри та запит
+- Djinni: ключові слова, категорія, досвід, зарплатні очікування, англійська. На Djinni профілі анонімні, тож пиши через кнопку «Запросити» на вакансію
+- Work.ua / robota.ua: пошук у базі резюме (особливо для нетехнічних ролей)
+- Google X-ray: `site:linkedin.com/in/ "ключове слово" "Ukraine"` (а також `"Україна"`, `"Kyiv"`, `"Lviv"` тощо)
+- GitHub (якщо роль технічна): `location:Ukraine language:...`
+- DOU: профілі й автори статей на форумі за темою
 
-### Step 2 — Broaden Titles
-Same core skills but add title variations and synonyms. Many people do the same job under different titles.
+Пам'ятай, що українські фахівці пишуть посади і англійською, і українською: додавай обидва варіанти. Для міст враховуй різні написання (Kyiv / Kiev / Київ, Kharkiv / Харків, Lviv / Львів).
 
-### Step 3 — Adjacent Roles
-People doing the job under different titles or in adjacent functions. Think creatively — who has the skills even if their title doesn't match?
+### Крок 2. Ширші назви посад
+Ті самі навички, але більше варіантів і синонімів назви посади.
 
-### Step 4 — Skill-Based Search
-Drop titles entirely. Search by skill combinations and project signals. Look for evidence of the work, not the title.
+### Крок 3. Суміжні ролі
+Люди, які роблять цю роботу під іншою назвою або в суміжних функціях.
 
-### Step 5 — Passive/Creative Sourcing
-- Conference speakers in relevant events
-- Blog authors and newsletter writers
-- Open-source maintainers and contributors
-- Community leaders in relevant spaces
-- Podcast guests discussing relevant topics
+### Крок 4. Пошук за навичками
+Без назв посад, лише комбінації навичок і сліди реальної роботи.
 
-**Guidance for the recruiter:**
-> Start with Step 1. If you get fewer than 20 results, move to Step 2. Keep expanding until you have enough candidates to work with. Quality matters more than quantity — 30 well-matched candidates beat 300 random ones.
+### Крок 5. Пасивний і креативний пошук
+- Спікери українських IT-конференцій і мітапів
+- Автори статей на DOU, Habr, Medium, власних блогах
+- Автори Telegram-каналів за темою
+- Контриб'ютори open source
+- Лідери профільних спільнот і курсів (викладачі, ментори)
+- Гості подкастів
 
-## Part B: Full Sourcing Channel Checklist
+**Порада рекрутерці:**
+> Почніть з кроку 1. Якщо результатів менше 20, переходьте до кроку 2 і далі, доки не наберете достатньо. 30 точних кандидатів кращі за 300 випадкових.
 
-Generate a comprehensive action plan covering ALL channels. For each channel, provide specific action items and checklist questions.
+## Частина B. Чекліст каналів
 
-### 1. Internal Sources (ATS / Talent Pool)
-- [ ] Searched ATS for matching candidates?
-- [ ] Found at least 10-20 suitable candidates?
-- [ ] Messaged or called those candidates?
-- [ ] Are they interested? If not, why?
-- [ ] Submitted any suitable candidates?
+Для кожного каналу дай конкретні дії та запитання для самоперевірки.
 
-### 2. External Sourcing Tools
-- [ ] Is someone actively sourcing for this position?
-- [ ] On which platforms? (LinkedIn, GitHub, Google, Xing)
-- [ ] Is the Boolean strategy effective? (Getting relevant results?)
-- [ ] Are contacts being pre-screened before outreach?
-- [ ] Is feedback flowing back so the sourcer can refine the search?
-- [ ] How many contacts on the sourcing sheet?
+### 1. Внутрішня база (ATS / талант-пул)
+- [ ] Шукали в ATS чи своїй таблиці кандидатів?
+- [ ] Знайшли хоча б 10–20 відповідних людей?
+- [ ] Написали чи подзвонили їм?
+- [ ] Чи зацікавлені? Якщо ні, то чому?
 
-### 3. LinkedIn Direct Sourcing
-- [ ] Found at least 30-50 prospective candidates?
-- [ ] Messaged at least 20-30 prospects?
-- [ ] Follow-up cadence set for non-responders?
+### 2. LinkedIn
+- [ ] Знайшли 30–50 потенційних кандидатів?
+- [ ] Написали хоча б 20–30?
+- [ ] Налаштували нагадування для тих, хто не відповів?
+- [ ] Опублікували вакансію (безкоштовно чи з бюджетом)?
 
-### 4. Talent Databases
-- [ ] Indeed — do you have access? Sourcing resumes?
-- [ ] Naukri (if relevant market) — access?
-- [ ] Other databases relevant to this role?
+### 3. Djinni
+- [ ] Вакансію опубліковано, вилку вказано?
+- [ ] Шукали кандидатів у базі й надсилали запрошення?
+- [ ] Відповідаєте на відгуки протягом 1–2 днів?
 
-### 5. Bounty Hunters / Associates
-- [ ] Shared the opening with bounty programs?
-- [ ] Do associates know what the ideal candidate looks like?
-- [ ] Providing feedback on submitted candidates?
-- [ ] How many suitable candidates received?
+### 4. DOU
+- [ ] Вакансію опубліковано на DOU?
+- [ ] Компанія має актуальну сторінку на DOU?
 
-### 6. Referrals
-- [ ] Identified 20-30 people to ask for referrals?
-  - From talent pool / ATS
-  - From LinkedIn 1st connections
-  - Connect with similar professionals (2nd connections) and ask
+### 5. Work.ua / robota.ua
+- [ ] Для нетехнічних ролей: вакансію опубліковано, базу резюме переглянули?
 
-### 7. Job Boards
-- [ ] **ATS integrations**: Cross-posted through ATS?
-- [ ] **LinkedIn**: Free post published? Paid boost budget?
-- [ ] **Talent.com**: Featured listing?
-- [ ] **Local job boards**: Posted? (Free and paid — which ones?)
-- [ ] **International boards**: Posted? (Which ones?)
-- [ ] Receiving suitable candidates from any board?
+### 6. Telegram
+- [ ] Опублікували в профільних каналах з вакансіями? (Які?)
+- [ ] Написали в профільних чатах спільнот (з дозволу адміністраторів)?
 
-### 8. Social Media — Organic
-- [ ] **LinkedIn company page**: Posted with relevant hashtags?
-- [ ] **LinkedIn personal profile**: Posted on your profile?
-- [ ] **Colleague shares**: Prepared a message for colleagues to share?
-- [ ] **Facebook company page**: Posted?
-- [ ] **Facebook personal**: Posted?
+### 7. Рекомендації
+- [ ] Склали список з 20–30 людей, яких можна попросити порекомендувати когось?
+  - з талант-пулу;
+  - з контактів першого рівня в LinkedIn;
+  - з колег наймаючого менеджера.
+- [ ] Чи є в компанії реферальна програма? Чи знають про неї працівники?
 
-### 9. Social Media — Paid Ads
-- [ ] **Meta (FB/IG)**: Launched paid ads? Receiving leads?
-- [ ] **LinkedIn ads**: Launched? Receiving leads?
-- [ ] At least one lead interviewed and submitted?
+### 8. Соцмережі органічно
+- [ ] Пост на сторінці компанії в LinkedIn?
+- [ ] Пост у вашому особистому профілі?
+- [ ] Підготували текст, яким колеги можуть поділитися?
+- [ ] Facebook-групи за темою?
 
-### 10. Groups
-- [ ] **Facebook groups**: Posted in relevant groups? (Which ones?)
-- [ ] **LinkedIn groups**: Posted? (Which ones?)
-- [ ] Posts compelling enough to attract responses?
-- [ ] Receiving suitable candidates?
+### 9. Платна реклама
+- [ ] Реклама в LinkedIn чи Meta? Чи є відгуки?
 
-### 11. Messaging Channels
-- [ ] **Telegram**: Posted in relevant channels? (Which ones?)
-- [ ] **Slack communities**: Posted in relevant workspaces? (Which ones?)
-- [ ] Receiving suitable candidates?
+### 10. Спільноти й події
+- [ ] Профільні мітапи, конференції, курси, Slack- і Discord-спільноти?
 
-## Output Format
+### 11. Кандидати за кордоном
+- [ ] Якщо роль дозволяє: шукали українців за кордоном (X-ray з містами Польщі, Німеччини тощо, українськомовні спільноти в цих країнах)?
 
-All Boolean strings and X-ray searches must be in fenced code blocks (copy-paste ready). The channel checklist should be in checkbox format so the recruiter can track progress.
+## Формат результату
 
-Adapt all suggestions based on the specific role type and target locations. If the playbook has data on channel effectiveness, surface it prominently.
+Усі булеві запити та X-ray — у блоках коду, щоб можна було скопіювати. Чекліст — з галочками, щоб відстежувати прогрес.
+
+Адаптуй усе під конкретну роль і географію. Якщо в playbook є дані про ефективність каналів, покажи їх на початку.

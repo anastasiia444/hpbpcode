@@ -1,0 +1,11 @@
+services:
+  bot:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      # База, резюме і ключ Google живуть на сервері й переживають оновлення бота
+      - ./data:/app/data
+      # Ваші приклади, playbooks і профіль: можна редагувати без перезбирання
+      - ./.claude:/app/.claude
+      - ./CLAUDE.md:/app/CLAUDE.md:ro

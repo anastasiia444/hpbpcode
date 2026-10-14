@@ -1,142 +1,135 @@
 ---
 name: job-requirement-analysis
 description: >-
-  Guides recruiters through structured job requirement analysis covering 18 dimensions
-  (technical stack, seniority, culture fit, compensation, hiring process, and more).
-  Use when the user says "analyze this requirement", "intake call", "new role to fill",
-  shares raw notes from a hiring manager, or wants to break down a job before sourcing.
+  Проводить рекрутерку через структурований аналіз вакансії за 19 пунктами
+  (стек, рівень, формат роботи, компенсація, тип договору, бронювання, процес
+  найму, команда, компанія). Використовуй, коли користувачка каже «розбери вакансію»,
+  «нова вакансія», «інтейк», «бриф від замовника», надсилає нотатки від hiring
+  manager або опис вакансії перед початком пошуку (analyze this requirement, intake).
 ---
 
-# Job Requirement Analysis
+# Аналіз вакансії
 
-## Quick Start
+## Швидкий старт
 
-Paste your job description, hiring manager notes, or just say "I have a new role to fill" and this skill will walk you through a comprehensive requirement analysis.
+Вставте опис вакансії, нотатки після розмови з наймаючим менеджером або просто напишіть «маю нову вакансію», і я проведу вас через повний аналіз.
 
-## Before You Begin
+## Перед початком
 
-1. **Check `my-examples/`** for past requirement analyses. If found, match the depth, format, and structure the recruiter prefers.
-2. **Check `resources/`** for PDF guides or mind maps on requirement analysis. Reference relevant insights.
-3. **Check `../playbooks/`** for a playbook matching this role type. If found, incorporate role-specific intake patterns and mention it: "I found a playbook for [role type] — using it to guide this analysis."
+1. **Переглянь `my-examples/`**: якщо там є минулі аналізи, повтори їхню глибину, формат і структуру.
+2. **Переглянь `resources/`**: якщо там є гайди чи mind map, використай корисне з них.
+3. **Переглянь `../../playbooks/`**: якщо є playbook для цього типу ролі, врахуй його і скажи: «Знайшла playbook для [тип ролі], використовую його в аналізі».
 
-## How This Works
+## Як працювати
 
-Walk the recruiter through each of the 18 dimensions below. For each dimension:
-- If the user's input covers it: extract and structure the information
-- If the user's input does NOT cover it: mark it as **"TO ASK"** with a suggested question for the hiring manager
-- Never skip a dimension — completeness is the whole point
+Пройди всі 19 пунктів нижче. Для кожного:
+- якщо інформація є у вхідних даних, витягни її і структуруй;
+- якщо її немає, познач **«УТОЧНИТИ»** і запропонуй конкретне запитання для наймаючого менеджера;
+- не пропускай жодного пункту, бо повнота тут головне.
 
-## Analysis Dimensions
+## Пункти аналізу
 
-### 1. Technical Stack
-- Interesting technologies used? (AI, VR, BigData, Cloud, etc.)
-- Must-know technologies: programming languages, frameworks, libraries
-- Platform: web (backend/frontend), mobile (native/cross-platform), desktop
-- Specific versions required? (e.g., Angular 9, Python 3.11)
+### 1. Технічний стек
+- Цікаві технології (AI, хмара, BigData, highload тощо)?
+- Обов'язкові мови, фреймворки, бібліотеки
+- Платформа: web (backend/frontend), mobile (native/cross-platform), desktop
+- Чи важливі конкретні версії?
 
-### 2. Core Competences
-- Software development? (Backend / Frontend / Full-stack)
-- Software architecture?
-- Automated testing?
-- Analysis, data science, DevOps, other?
+### 2. Ключові компетенції
+- Розробка (backend / frontend / full-stack), архітектура, тестування, аналітика, data, DevOps, менеджмент?
 
-### 3. Seniority
-- Overall level: Trainee/Intern, Junior, Mid, Senior, Principal, Tech Lead, Manager
-- Years of experience with specific technologies
+### 3. Рівень
+- Trainee/Intern, Junior, Middle, Senior, Lead, Architect, Manager
+- Скільки років досвіду з конкретними технологіями
 
-### 4. Job Fulfillment
-- Remote, hybrid, or on-site only?
-- Flexible schedule or fixed hours?
+### 4. Формат роботи
+- Віддалено, гібрид чи офіс? Яке місто?
+- Гнучкий графік чи фіксовані години? Важливі часові пояси замовника?
+- Чим компанія забезпечує роботу під час блекаутів (генератори, Starlink, коворкінги, компенсація)?
 
-### 5. Specific Background / Industry Experience
-- Domain expertise needed? (e.g., frontend + SEO, CTO + FinTech, backend + no framework preference)
+### 5. Специфічний досвід / домен
+- Чи потрібен досвід у певній індустрії (FinTech, e-commerce, gamedev, healthtech тощо)?
+- Продуктова чи аутсорс/аутстаф-компанія в досвіді — чи це важливо?
 
-### 6. Certifications Required
-- Any required certs? (AZ-104, CCNA, PMP, AWS Solutions Architect, etc.)
+### 6. Сертифікати
+- Чи потрібні (AWS, Azure, PMP, ISTQB тощо)?
 
-### 7. Sourcing Locations
-- If on-site: where is the office?
-- If remote: which destinations are OK?
-- Where NOT to source from?
+### 7. Географія пошуку
+- Тільки Україна чи також українці за кордоном?
+- Звідки шукати, звідки не можна (санкційні країни, юрисдикції замовника)?
 
-### 8. Personality & Culture Fit
-- Crafter/maker or generalist/specialist?
-- Builder or maintainer?
-- How will they recognize who is a good fit beyond hard skills?
+### 8. Особистість і культура
+- «Будівельник» чи «підтримувач»? Генераліст чи вузький спеціаліст?
+- Як команда зрозуміє, що людина підходить, крім хард-скілів?
+- Мова спілкування в команді, потрібний рівень англійської
 
-### 9. Hiring Process
-- Who will screen new candidates?
-- Who will organize technical assessment?
-- How many interview rounds are expected?
+### 9. Процес найму
+- Хто проводить перший скринінг?
+- Чи є тестове завдання і хто його перевіряє?
+- Скільки етапів інтерв'ю, хто на них присутній, скільки часу займає весь процес?
 
-### 10. Administration
-- Recruitment contract signed?
+### 10. Адміністративне
+- Чи підписано договір на підбір? Яка гарантія на заміну кандидата?
 
-### 11. Screening Questions
-- Define 3-6 screening questions for initial candidate contact
-- Suggest questions based on the role if none are provided
+### 11. Скринінгові запитання
+- 3–6 запитань для першого контакту з кандидатом. Якщо їх немає, запропонуй свої під роль.
 
-### 12. Relocation
-- Is relocation OK?
-- Are visas sponsored?
-- Any relocation package?
+### 12. Релокація
+- Чи можлива релокація (в інше місто, за кордон)? Чи є пакет релокації?
 
-### 13. Contract
-- Part-time or full-time?
-- Employment or freelance contract?
-- Expected start date?
-- Signed directly with the candidate or through Deel/Remote/Join.com?
-- Paid holidays? How many days?
-- Other benefits?
+### 13. Тип співпраці
+- Повна чи часткова зайнятість?
+- ФОП, трудовий договір, гіг-контракт Дія.City чи контракт з іноземною компанією (Deel, Remote тощо)?
+- Очікувана дата виходу
+- Оплачувані відпустки та лікарняні: скільки днів?
+- Інші бенефіти: медстрахування, навчання, обладнання, спорт, психологічна підтримка
 
-### 14. Compensation
-- Salary range
-- Monthly / daily / hourly rate?
+### 14. Компенсація
+- Вилка, валюта (USD/EUR/UAH), gross чи net
+- Місячна, погодинна чи денна ставка? Бонуси, опціони?
 
-### 15. The Position
-- "Who is this a dream job for?"
-- Red flags to watch for? (e.g., freelancers yes/no)
-- Excluded companies? (no-poaching agreements)
+### 15. Військовий облік і бронювання
+- Чи може компанія бронювати працівників? Для яких позицій?
+- Чи потрібні відрядження за кордон?
+- Чи розглядаються кандидати, які зараз за кордоном?
+- Фіксуй лише те, що пропонує і вимагає компанія. Це не критерій для відсіювання людей.
 
-### 16. Project
-- What's interesting about it?
-- Who uses the product?
-- Interesting technologies or challenges ahead?
-- Nature: build from scratch / maintenance / ongoing development / R&D / quick MVP?
-- Milestones: short-term and long-term
+### 16. Позиція
+- «Для кого це робота мрії?»
+- Червоні прапорці (наприклад, чи можна фрилансерів)
+- Компанії, звідки не можна переманювати (non-poaching)
 
-### 17. Team
-- Team size?
-- Why do they like working at this company?
-- Seniority of team members? Any superstars?
-- Tools used? Work methodology? Best practices adopted?
+### 17. Проєкт
+- Що в ньому цікавого? Хто користувачі продукту?
+- Тип: з нуля / підтримка / розвиток / R&D / MVP
+- Найближчі та довгострокові цілі
 
-### 18. Company
-- The pitch: how would you introduce it?
-- Company type: startup, agency, corporation, product company?
+### 18. Команда
+- Розмір, рівень учасників, сильні люди в команді
+- Чому людям подобається тут працювати?
+- Методологія, інструменти, практики
 
-## Output Format
+### 19. Компанія
+- Пітч: як би ви її представили одним абзацом?
+- Тип: стартап, продуктова, аутсорс, аутстаф, корпорація, агенція?
 
-Present the analysis as a structured document with all 18 dimensions. Use this format:
+## Формат результату
 
 ```markdown
-# Requirement Analysis: [Job Title]
+# Аналіз вакансії: [Назва позиції]
 
-## 1. Technical Stack
-[Extracted info or "TO ASK: What technologies does the team use?"]
+## 1. Технічний стек
+[Інформація або «УТОЧНИТИ: Які технології використовує команда?»]
 
-## 2. Core Competences
-[...]
-
-... (all 18 dimensions)
+... (усі 19 пунктів)
 
 ---
 
-## Open Questions for Hiring Manager
-1. [Question from dimension marked TO ASK]
+## Відкриті запитання до наймаючого менеджера
+1. [Запитання з пункту, позначеного УТОЧНИТИ]
 2. [...]
 ```
 
-## What's Next
+## Що далі
 
-After completing the analysis, suggest: "Ready to build a scoring rubric? Use the **ICP Builder** skill with this requirement analysis."
+Після аналізу запропонуй: «Готові скласти таблицю оцінки кандидатів? Використаймо навичку **candidate-icp-builder** на основі цього аналізу».
